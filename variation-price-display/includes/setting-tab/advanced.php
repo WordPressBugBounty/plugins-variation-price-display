@@ -128,7 +128,7 @@
                 'value' => !empty( get_option('variation_price_display_option_advanced') ) ? Variation_Price_Display::get_options()->display_discount_badge : 'yes',
                 'name' => 'variation_price_display_option_advanced[display_discount_badge]',
                 'default_value' => 'yes', //true or checked
-                'checkbox_label' => __('Enable it to display <b><u>Discount Badge</u></b>'),
+                'checkbox_label' => __('Enable it to display <b><u>Discount Badge</u></b>', 'variation-price-display'),
                 'note' => '',
                 'note_info' => __('<b>Note:</b> To get it to work with <b>[Minimum/Maximum Price]</b>, please enable <b>Format Sale Price</b> option from <b>General Tab</b>. This option will also work with <b>List all variation price</b> but will not work if Grouped Child product is not a variable product.', 'variation-price-display'),
                 'need_pro' => true,
@@ -146,7 +146,7 @@
                 'default_value' => Variation_Price_Display::get_options()->discount_badge_color,
                 'note' => '',
                 'need_pro' => true,
-                'tag' => esc_attr__('New', 'product-share'),
+                'tag' => esc_attr__('New', 'variation-price-display'),
                 'pro_exists' => Variation_Price_Display::check_plugin_state('variation-price-display-pro'),
                 'tag' => esc_attr__('New', 'variation-price-display'),
             )
@@ -162,7 +162,7 @@
                 'default_value' => Variation_Price_Display::get_options()->discount_badge_text_color,
                 'note' => '',
                 'need_pro' => true,
-                'tag' => esc_attr__('New', 'product-share'),
+                'tag' => esc_attr__('New', 'variation-price-display'),
                 'pro_exists' => Variation_Price_Display::check_plugin_state('variation-price-display-pro'),
                 'tag' => esc_attr__('New', 'variation-price-display'),
             )
@@ -178,7 +178,7 @@
                 'value' => !empty( get_option('variation_price_display_option_advanced') ) ? Variation_Price_Display::get_options()->disable_price_format_for_admin : 'no',
                 'name' => 'variation_price_display_option_advanced[disable_price_format_for_admin]',
                 'default_value' => 'yes', //true or checked
-                'checkbox_label' => __('Disable Price Format for the Admin.'),
+                'checkbox_label' => __('Disable Price Format for the Admin.', 'variation-price-display'),
                 'note' => '',
                 'note_info' => __('<b>Note:</b> By enabling this option, Admin can see the default price range while logged in.', 'variation-price-display'),
                 'need_pro' => true,
@@ -196,7 +196,7 @@
                 'value' => !empty( get_option('variation_price_display_option_advanced') ) ? Variation_Price_Display::get_options()->disable_product_name : 'no',
                 'name' => 'variation_price_display_option_advanced[disable_product_name]',
                 'default_value' => 'yes', //true or checked
-                'checkbox_label' => __('Disable Product Name When Price Type is <b><u>List All Variation</u></b>.'),
+                'checkbox_label' => __('Disable Product Name When Price Type is <b><u>List All Variation</u></b>.', 'variation-price-display'),
                 'note' => '',
                 'note_info' => __('<b>Note:</b> By enabling this option, Product Name will be removed when you have selected <b>List all variation price</b>.', 'variation-price-display'),
                 'need_pro' => true,
@@ -229,13 +229,13 @@
         // Enable Price Display for Grouped Product
         WPXtension_Setting_Fields::checkbox(
             $options = array(
-                'tr_class' => 'alternate',
+                'tr_class' => '',
                 'label' => esc_attr__('Enable for Grouped Product', 'variation-price-display'),
                 'ele_class' => 'enable_for_grouped_product',
                 'value' => !empty( get_option('variation_price_display_option_advanced') ) ? Variation_Price_Display::get_options()->enable_for_grouped_product : 'no',
                 'name' => 'variation_price_display_option_advanced[enable_for_grouped_product]',
                 'default_value' => 'yes', //true or checked
-                'checkbox_label' => __('Enable Price Display for Grouped Product type.'),
+                'checkbox_label' => __('Enable Price Display for Grouped Product type.', 'variation-price-display'),
                 'note' => '',
                 'note_info' => __('<b>Note:</b> By enabling this option, Price settings (Price types) will be applied on Grouped Products.', 'variation-price-display'),
                 'need_pro' => true,
@@ -243,6 +243,26 @@
                 'tag' => esc_attr__('New', 'variation-price-display'),
             )
         );
+
+        // Animation Speed
+        WPXtension_Setting_Fields::number(
+            $options = array(
+                'tr_class' => ' alternate new',
+                'label' => esc_attr__('Animation Speed', 'variation-price-display'),
+                'ele_class' => '',
+                'value' => !empty( get_option('variation_price_display_option_advanced') ) ? absint( Variation_Price_Display::get_options()->animation_speed ) : 200,
+                'name' => 'variation_price_display_option_advanced[animation_speed]',
+                'default_value' => 'yes', //initially true or checked //@note: but false at get_options();
+                'value_type' => sanitize_text_field( 'millisecond' ),
+                'min' => sanitize_text_field( 0 ),
+                'step' => sanitize_text_field( 50 ),
+                'note' => '',
+                'note_info' => __( 'Price change animation speed (on changing variation).', 'variation-price-display' ),
+                'need_pro' => true,
+                'pro_exists' => Variation_Price_Display::check_plugin_state('variation-price-display-pro'),
+                'tag' => esc_attr__('New', 'variation-price-display'),
+            )
+        ); 
 
 
     ?>

@@ -1,16 +1,16 @@
 <?php
 /**
  * Plugin Name: Variation Price Display Range for WooCommerce
- * Plugin URI: https://wordpress.org/plugins/variation-price-display
+ * Plugin URI: https://wpxtension.com/product/variation-price-display/
  * Description: Adds lots of advanced options to control how you display the price for your WooCommerce variable products.
  * Author: WPXtension
- * Version: 1.3.15
+ * Version: 1.3.16
  * Domain Path: /languages
  * Requires at least: 5.8
- * Tested up to: 6.6
+ * Tested up to: 6.7
  * Requires PHP: 7.2
  * WC requires at least: 5.5
- * WC tested up to: 9.2
+ * WC tested up to: 9.4
  * Text Domain: variation-price-display
  * Author URI: https://wpxtension.com/
  * License: GPLv2 or later

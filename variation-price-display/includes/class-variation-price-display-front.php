@@ -48,6 +48,7 @@ class Variation_Price_Display_Front{
                 'hideDefaultPrice' => !empty( get_option('variation_price_display_option') ) ? Variation_Price_Display::get_options()->hide_default_price : 'yes',
                 'wrapperClass' => Variation_Price_Display::get_options()->wrapper_class,
                 'removePriceClass' => Variation_Price_Display::get_options()->remove_price_class,
+                'animationSpeed' => apply_filters( 'vpd_price_change_animation_speed', 200 ),
             )
         );
     	

@@ -26,6 +26,11 @@ class Variation_Price_Display_Admin_Settings{
         add_action('vpd_layout_start', array( $this, 'reset_setting' ) );
         // Update Settings
         add_action( 'admin_init', array( $this, 'upgrade_option' ) );
+
+        // ### WPX Plugin Notice
+        add_action('admin_notices', array( $this, 'wpx_plugin_admin_notice' ) );
+        add_action('admin_head', array( $this, 'wpx_notice_style' ) );
+        add_action('wp_ajax_wpx_dismiss_notice', array( $this, 'wpx_dismiss_notice') );
     }
 
     public static function submenu( ){
@@ -114,7 +119,7 @@ class Variation_Price_Display_Admin_Settings{
         array_unshift( $links, $settings_link );
 
         if( !Variation_Price_Display::check_plugin_state('variation-price-display-pro') ){
-            $pro_link = "<a style='font-weight: bold; color: #8012f9;' href='https://wpxtension.com/product/variation-price-display-for-woocommerce/' target='_blank'>" . __( 'Go Premium' ) . '</a>';
+            $pro_link = "<a style='font-weight: bold; color: #8012f9;' href='https://wpxtension.com/product/variation-price-display-for-woocommerce/' target='_blank'>" . __( 'Go Premium', 'variation-price-display' ) . '</a>';
             array_push( $links, $pro_link );
         }
         return $links; 
@@ -292,6 +297,133 @@ class Variation_Price_Display_Admin_Settings{
             delete_option('vpd_license_key_text');
         }
 
+    }
+
+    // Show the admin notice
+    public function wpx_plugin_admin_notice() {
+        if (!current_user_can('administrator')) return; // Exit early if not admin
+
+        $dismissed_date = get_option('wpx_notice_dismissed_date');
+        $dismiss_duration = 30 * DAY_IN_SECONDS; // 30 days in seconds
+        $current_time = current_time('timestamp');
+        
+        // Show the notice if it hasn't been dismissed in the last 30 days
+        if (!$dismissed_date || ($current_time - $dismissed_date) > $dismiss_duration) {
+
+            $screen = get_current_screen();
+
+            $admin_notice_nonce = wp_create_nonce( 'wpx-notice-nonce' );
+
+            if( wp_verify_nonce( $admin_notice_nonce, 'wpx-notice-nonce' ) ){
+
+                if( in_array( $screen->id, array( 'plugins' ) )  || 
+                    isset( $_GET['page'] ) && $_GET['page'] === 'wc-orders' 
+                ){
+                    $this->wpx_get_notice_html();  // Output the notice HTML
+                    $this->wpx_enqueue_notice_script(); // Enqueue the JavaScript for dismiss functionality
+                }
+
+            }
+
+        }
+    }
+
+    // Return the HTML for the notice
+    public function wpx_get_notice_html() { 
+        ?>
+        <div class="notice notice-info is-dismissible wpx-custom-notice" id="wpx-custom-notice">
+            <div class="wpx-custom-notice-image">
+                <img src="<?php echo esc_url( $this->wpx_media_url('2024/10/xthumbs-woo.png') ); ?>" width="80px" />
+            </div>
+            <div class="wpx-custom-notice-content">
+                <h4><strong>Grab your customers’ attention</strong> by displaying more product images on WooCommerce archive pages with <strong>xThumbs</strong>.</h4>
+                <p>
+                    <a href="https://wpxtension.com/product/xthumbs-image-flipper-for-woocommerce/" class="wpx-buy-now" target="_blank">
+                        <span class="dashicons dashicons-cart"></span> Buy Now
+                    </a>
+                    <a href="https://demo.wpxtension.com/xthumbs-image-flipper-for-woocommerce/" class="wpx-view-demo" target="_blank">
+                        <span class="dashicons dashicons-welcome-view-site"></span> View Demo
+                    </a>
+                    <a href="#" class="wpx-dismiss-30">
+                        <span class="dashicons dashicons-dismiss"></span> Hide for 1 month
+                    </a>
+                </p>
+            </div>
+        </div>
+        <?php
+    }
+
+    // Enqueue JavaScript for dismiss functionality
+    public function wpx_enqueue_notice_script() {
+        ?>
+        <script type="text/javascript">
+            (function($){
+                $(document).on('click', '.wpx-dismiss-30', function(e) {
+                    e.preventDefault();
+                    var data = {
+                        action: 'wpx_dismiss_notice',
+                        _ajax_nonce: '<?php echo esc_attr( wp_create_nonce('wpx_dismiss_nonce') ); ?>'
+                    };
+                    $.post(ajaxurl, data, function(response) {
+                        $('#wpx-custom-notice').fadeOut();
+                    });
+                });
+            })(jQuery);
+        </script>
+        <?php
+    }
+
+    // Add style for the notice
+    public function wpx_notice_style(){
+        ?>
+        <style>
+            .wpx-custom-notice.notice-info {
+                border-left-color: #8012f9;
+                display: flex;
+                align-items: center;
+                padding: 12px;
+                background-color: rgba(128, 18, 249, 0.1);
+            }
+            .wpx-custom-notice-content {
+                margin-left: 12px;
+            }
+            .wpx-custom-notice-content h4 {
+                color: #000000;
+            }
+            .wpx-custom-notice-content p > a {
+                text-decoration: none;
+                display: inline-block;
+                color: #222222;
+            }
+            .wpx-custom-notice-content p a:first-child {
+                color: red;
+            }
+            .wpx-custom-notice-content p a:not(:last-child)::after {
+                content: "|";
+                padding: 0 10px;
+            }
+            .wpx-custom-notice-content p a::after {
+                color: #2271b1;
+            }
+        </style>
+        <?php
+    }
+
+    // Handle the dismissal of the notice
+    public function wpx_dismiss_notice() {
+        // Verify nonce for security
+        if (!isset($_POST['_ajax_nonce']) || !wp_verify_nonce( sanitize_key( wp_unslash( $_POST['_ajax_nonce'] ) ), 'wpx_dismiss_nonce' ) ) {
+            die('Permission Denied');
+        }
+
+        // Save the current timestamp when the notice is dismissed
+        update_option('wpx_notice_dismissed_date', current_time('timestamp'));
+        wp_send_json_success(); // Send a success response
+    }
+
+    // WPX's image source
+    public function wpx_media_url( $src ){
+        return sprintf('https://wpxtension.com/wp-content/uploads/%s', $src);
     }
 
 }

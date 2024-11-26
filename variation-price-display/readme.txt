@@ -4,9 +4,9 @@ Tags: price, price display, variation price, WooCommerce variation price, WooCom
 Requires PHP: 7.2
 Requires at least: 5.8
 WC requires at least: 5.5
-Tested up to: 6.6
-WC tested up to: 9.2
-Stable tag: 1.3.15
+Tested up to: 6.7
+WC tested up to: 9.4
+Stable tag: 1.3.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,12 @@ Yes, price can be changed by change variaitons from dropdown (on single product 
 4. Advanced tab for Premimum version.
 
 == Changelog ==
+
+= 1.3.16 [26-11-2024] =
+* Fix: Textdomain issues.
+* Update: Admin backend.js.
+* Security: Checked WPCS (PCP - Plugin Check Plugin).
+* Compatibility: WooCommerce 9.4 & WordPress 6.7.
 
 = 1.3.15 [02-09-2024] =
 * Update: Setting Framework Update.

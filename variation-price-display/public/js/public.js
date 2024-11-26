@@ -3,7 +3,7 @@
     // Main Script
     var vpdInit = function(){
         // Getting object from localization
-        vpdPublicObject = vpd_public_object
+        vpdPublicObject = vpd_public_object;
 
         var singleVariation, priceContainer, initPrice, prevPrice, vpdPublicObject, product_wrapper;
 
@@ -67,9 +67,9 @@
                 priceContainer2 = priceContainer.find('.price, .wp-block-woocommerce-product-price')
                             .not('.related .price, .upsell .price, .wp-block-woocommerce-related-products .wp-block-woocommerce-product-price');
             }
-            
-            priceContainer2.fadeOut(200, function () {
-                priceContainer2.html(variationPrice).fadeIn(200);
+            // Animation Speed `vpdPublicObject.animationSpeed`. parseInt used for converting it to float.
+            priceContainer2.fadeOut( parseInt( vpdPublicObject.animationSpeed ), function () {
+                priceContainer2.html(variationPrice).fadeIn( parseInt( vpdPublicObject.animationSpeed ) );
                 prevPrice = variationPrice;
             });
 

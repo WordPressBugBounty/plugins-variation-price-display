@@ -92,7 +92,7 @@
                     'value' => Variation_Price_Display::get_options()->custom_price_text,
                     'name' => 'variation_price_display_option[custom_price_text]',
                     'note' => __('<b>Some Examples:</b> <code>Starts at %min_price%</code>, <code>Starts %min_price% to %max_price%</code>.', 'variation-price-display'),
-                    'note_info' => __('Display price format as you want, between two prices. <b>Note:</b> Display <b>Minimum Price</b> as <u>%min_price%</u> and <b>Maximum Price</b> as <u>%max_price%</u>.'),
+                    'note_info' => __('Display price format as you want, between two prices. <b>Note:</b> Display <b>Minimum Price</b> as <u>%min_price%</u> and <b>Maximum Price</b> as <u>%max_price%</u>.', 'variation-price-display'),
                     'placeholder' => '',
                     'need_pro' => true,
                     'pro_exists' => Variation_Price_Display::check_plugin_state('variation-price-display-pro'),
@@ -111,13 +111,12 @@
                     'note' => '',
                     'need_pro' => false,
                 )
-            ); 
-
+            );
 
             // Hide Default Price
             WPXtension_Setting_Fields::checkbox(
                 $options = array(
-                    'tr_class' => '',
+                    'tr_class' => 'alternate',
                     'label' => esc_attr__('Hide Default Price', 'variation-price-display'),
                     'value' => !empty( get_option('variation_price_display_option') ) ? Variation_Price_Display::get_options()->hide_default_price : 'yes',
                     'name' => 'variation_price_display_option[hide_default_price]',
@@ -131,7 +130,7 @@
             // Hide Reset Link
             WPXtension_Setting_Fields::checkbox(
                 $options = array(
-                    'tr_class' => 'alternate',
+                    'tr_class' => '',
                     'label' => esc_attr__('Hide Reset Link', 'variation-price-display'),
                     'value' => Variation_Price_Display::get_options()->hide_reset_link,
                     'name' => 'variation_price_display_option[hide_reset_link]',
@@ -145,7 +144,7 @@
             // Format Sale Price
             WPXtension_Setting_Fields::checkbox(
                 $options = array(
-                    'tr_class' => '',
+                    'tr_class' => 'alternate',
                     'label' => esc_attr__('Format Sale Price', 'variation-price-display'),
                     'ele_class' => 'format_sale_price',
                     'value' => Variation_Price_Display::get_options()->format_sale_price,
@@ -159,7 +158,7 @@
             // Custom Text
             WPXtension_Setting_Fields::text(
                 $options = array(
-                    'tr_class' => 'alternate',
+                    'tr_class' => '',
                     'label' => esc_attr__('Product Wrapper Class', 'variation-price-display'),
                     'ele_class' => '',
                     'value' => Variation_Price_Display::get_options()->wrapper_class,
@@ -174,7 +173,7 @@
             // Custom Text
             WPXtension_Setting_Fields::text(
                 $options = array(
-                    'tr_class' => '',
+                    'tr_class' => 'alternate',
                     'label' => esc_attr__('Remove Price Class', 'variation-price-display'),
                     'ele_class' => '',
                     'value' => Variation_Price_Display::get_options()->remove_price_class,
