@@ -22,7 +22,7 @@ class Variation_Price_Display_Front{
     public function hooks(){
     	// Asset Load
     	add_action( 'wp_enqueue_scripts', array( $this, 'front_asset' ) );
-    	add_filter( 'body_class', array( $this, 'adding_body_class' ) );
+    	add_filter( 'body_class', array( $this, 'adding_body_class' ), 99 );
     	add_filter( 'woocommerce_variable_price_html', array( $this, 'get_price_html' ), 10, 2 );
     	add_filter( 'woocommerce_reset_variations_link', array( $this, 'remove_reset_link' ), 20, 1 );
     	add_filter( 'woocommerce_available_variation', array( $this, 'rewrite_woocommerce_available_variation' ), 99, 3 );
@@ -187,7 +187,7 @@ class Variation_Price_Display_Front{
 
 			break;
 
-		  default:
+		  default: 	
 
 		  	$formatted_price = wc_price( $product->get_variation_price( $type, true ) );
 

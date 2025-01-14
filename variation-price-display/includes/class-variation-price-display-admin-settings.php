@@ -332,11 +332,13 @@ class Variation_Price_Display_Admin_Settings{
     public function wpx_get_notice_html() { 
         ?>
         <div class="notice notice-info is-dismissible wpx-custom-notice" id="wpx-custom-notice">
-            <div class="wpx-custom-notice-image">
-                <img src="<?php echo esc_url( $this->wpx_media_url('2024/10/xthumbs-woo.png') ); ?>" width="80px" />
+            <div class="wpx-custom-notice-aside">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#ffffff" class="bi bi-plug-fill" viewBox="0 0 16 16">
+                  <path d="M6 0a.5.5 0 0 1 .5.5V3h3V.5a.5.5 0 0 1 1 0V3h1a.5.5 0 0 1 .5.5v3A3.5 3.5 0 0 1 8.5 10c-.002.434-.01.845-.04 1.22-.041.514-.126 1.003-.317 1.424a2.08 2.08 0 0 1-.97 1.028C6.725 13.9 6.169 14 5.5 14c-.998 0-1.61.33-1.974.718A1.92 1.92 0 0 0 3 16H2c0-.616.232-1.367.797-1.968C3.374 13.42 4.261 13 5.5 13c.581 0 .962-.088 1.218-.219.241-.123.4-.3.514-.55.121-.266.193-.621.23-1.09.027-.34.035-.718.037-1.141A3.5 3.5 0 0 1 4 6.5v-3a.5.5 0 0 1 .5-.5h1V.5A.5.5 0 0 1 6 0"/>
+                </svg>
             </div>
             <div class="wpx-custom-notice-content">
-                <h4><strong>Grab your customers’ attention</strong> by displaying more product images on WooCommerce archive pages with <strong>xThumbs</strong>.</h4>
+                <h3><strong>Grab your customers’ attention</strong> by displaying more product images on WooCommerce archive pages with <strong>xThumbs</strong>.</h3>
                 <p>
                     <a href="https://wpxtension.com/product/xthumbs-image-flipper-for-woocommerce/" class="wpx-buy-now" target="_blank">
                         <span class="dashicons dashicons-cart"></span> Buy Now
@@ -380,30 +382,48 @@ class Variation_Price_Display_Admin_Settings{
             .wpx-custom-notice.notice-info {
                 border-left-color: #8012f9;
                 display: flex;
-                align-items: center;
-                padding: 12px;
-                background-color: rgba(128, 18, 249, 0.1);
+                padding: 0;
+            }
+            .wpx-custom-notice-aside {
+                width: 50px;
+                background-color: rgb(128 18 249 / 7%);
+                text-align: center;
+                padding-top: 25px;
+            }
+            .wpx-custom-notice-aside svg {
+                background-color: #8012f9;
+                padding: 2px;
+                border-radius: 50%;
             }
             .wpx-custom-notice-content {
                 margin-left: 12px;
+                padding: 15px 0;
             }
-            .wpx-custom-notice-content h4 {
+            .wpx-custom-notice-content h3 {
                 color: #000000;
+                font-size: 15px;
             }
             .wpx-custom-notice-content p > a {
                 text-decoration: none;
                 display: inline-block;
-                color: #222222;
+                padding: 7px;
+                font-size: 12px;
+                border-radius: 3px;
+                color: #ffffff;
+                margin: 0 10px 0 0;
+            }
+            .wpx-custom-notice-content p > a span {
+                font-size: 16px;
             }
             .wpx-custom-notice-content p a:first-child {
-                color: red;
+                background-color: #8012f9;
             }
-            .wpx-custom-notice-content p a:not(:last-child)::after {
-                content: "|";
-                padding: 0 10px;
+            .wpx-custom-notice-content p a:nth-child(2) {
+                background-color: #000000;
             }
-            .wpx-custom-notice-content p a::after {
-                color: #2271b1;
+            .wpx-custom-notice-content p a:last-child {
+                background-color: #787c82;
+            }  margin: 0 10px;
             }
         </style>
         <?php
@@ -419,11 +439,6 @@ class Variation_Price_Display_Admin_Settings{
         // Save the current timestamp when the notice is dismissed
         update_option('wpx_notice_dismissed_date', current_time('timestamp'));
         wp_send_json_success(); // Send a success response
-    }
-
-    // WPX's image source
-    public function wpx_media_url( $src ){
-        return sprintf('https://wpxtension.com/wp-content/uploads/%s', $src);
     }
 
 }

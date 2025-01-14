@@ -5,8 +5,8 @@ Requires PHP: 7.2
 Requires at least: 5.8
 WC requires at least: 5.5
 Tested up to: 6.7
-WC tested up to: 9.4
-Stable tag: 1.3.16
+WC tested up to: 9.5
+Stable tag: 1.3.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -101,6 +101,12 @@ All price customization options are available for WooCommerce grouped products.
 🔥 **Reverse Format Sale Price**
 Display crossed regular pice after the sale price. Attract your customer and let them know the present price before the regular price.
 
+🔥 **Animation Speed**
+Control the animation speed of the price-changing effect after selecting the variation dropdown(s).
+
+🔥 **Hide Price**
+Disable the price until the selection of variation dropdown(s). After selecting the variation dropdown(s) the price will appear.
+
 
 === Try Addons for Elementor & WooCommerce ===
 
@@ -138,6 +144,10 @@ Yes, price can be changed by change variaitons from dropdown (on single product 
 4. Advanced tab for Premimum version.
 
 == Changelog ==
+
+= 1.3.17 [14-01-2025] =
+* Update: Codebase.
+* Compatibility: WooCommerce 9.5.
 
 = 1.3.16 [26-11-2024] =
 * Fix: Textdomain issues.

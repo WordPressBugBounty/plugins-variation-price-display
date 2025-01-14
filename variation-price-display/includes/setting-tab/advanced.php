@@ -264,6 +264,23 @@
             )
         ); 
 
+        // Hide Price till select dropdowns
+        WPXtension_Setting_Fields::checkbox(
+            $options = array(
+                'tr_class' => 'new',
+                'label' => esc_attr__('Hide Price', 'variation-price-display'),
+                'ele_class' => 'hide_price',
+                'value' => !empty( get_option('variation_price_display_option_advanced') ) ? Variation_Price_Display::get_options()->hide_price : 'no',
+                'name' => 'variation_price_display_option_advanced[hide_price]',
+                'default_value' => 'yes', //true or checked
+                'checkbox_label' => __('Hide the price untill select the variation dropdowns', 'variation-price-display'),
+                'note' => '',
+                'need_pro' => true,
+                'pro_exists' => Variation_Price_Display::check_plugin_state('variation-price-display-pro'),
+                'tag' => esc_attr__('New', 'variation-price-display'),
+            )
+        );
+
 
     ?>
 

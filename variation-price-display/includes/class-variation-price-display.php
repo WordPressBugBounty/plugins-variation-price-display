@@ -11,7 +11,7 @@ class Variation_Price_Display{
 
     protected $_plugin = 'variation-price-display';
 
-    protected $_version = '1.3.16';
+    protected $_version = '1.3.17';
 
     protected static $_instance = null;
 
@@ -192,6 +192,10 @@ class Variation_Price_Display{
             'discount_badge_text_color' => ( empty( $get_option['discount_badge_text_color'] ) ) ? '#ffffff' : $get_option['discount_badge_text_color'],
 
             'animation_speed' => ( !isset( $get_option['animation_speed'] ) ) ? 200 : $get_option['animation_speed'],
+
+            // Hide price till selection of variation dropdowns
+            'hide_price' => ( empty( $get_option['hide_price'] ) ) ? 'no' : $get_option['hide_price'],
+
 
         );
 
