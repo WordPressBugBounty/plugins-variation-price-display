@@ -70,9 +70,33 @@ class Variation_Price_Display_Admin_Settings{
     }
 
     public static function register_plugin_setting(){
-    	register_setting( 'variation-price-display-group', 'variation_price_display_option' );
-        register_setting( 'variation-price-display-group_adavanced', 'variation_price_display_option_advanced' );
-        register_setting( 'variation-price-display-group_license', 'variation_price_display_license' );
+        // phpcs:disable PluginCheck.CodeAnalysis.SettingSanitization.register_settingDynamic
+        // Sanitized the option inside the `sanitize_array` method
+    	register_setting( 'variation-price-display-group', 'variation_price_display_option', array( __CLASS__, 'sanitize_array' ) );
+        register_setting( 'variation-price-display-group_adavanced', 'variation_price_display_option_advanced', array( __CLASS__, 'sanitize_array' ) );
+        register_setting( 'variation-price-display-group_license', 'variation_price_display_license', 'sanitize_text_field' );
+    }
+
+    /**
+     * Sanitize the array
+     *
+     * @param      array  $options           The address input.
+     *
+     * @return     array  $santized_options  The sanitized input.
+     */
+    public function sanitize_array( $options ) : array{
+
+        // Initialize the new array that will hold the sanitize values
+        $santized_options = array();
+
+        // Loop through the options and sanitize each of the values
+        foreach ( $options as $key => $value ) {
+            $santized_options[ $key ] = ( isset( $options[ $key ] ) ) ?
+            sanitize_text_field( $value ) :
+            '';
+        }
+
+        return $santized_options;
     }
 
     public function admin_assets() {
@@ -159,10 +183,7 @@ class Variation_Price_Display_Admin_Settings{
         if( isset( $_GET['action'] ) && 'reset' === $_GET['action'] ){
 
             //In our file that handles the request, verify the nonce.
-            if ( isset( $_REQUEST['_wpnonce'] ) && ! wp_verify_nonce( sanitize_key( wp_unslash( $_REQUEST['_wpnonce'] ) ), 'vpd-settings' ) ) {
-                die( esc_html__( 'Security check', 'variation-price-display' ) ); 
-            } else {
-                
+            if ( isset( $_GET['_wpnonce'] ) && wp_verify_nonce( sanitize_key( wp_unslash( $_GET['_wpnonce'] ) ), 'vpd-settings' ) ) {
                 if( isset( $_GET['tab'] ) && 'advanced' === $_GET['tab'] ){
                     delete_option('variation_price_display_option_advanced');
                     wp_safe_redirect( admin_url( 'admin.php?page=variation-price-display&tab=' . sanitize_key( wp_unslash( $_GET['tab'] ) ) ) );
@@ -178,7 +199,8 @@ class Variation_Price_Display_Admin_Settings{
                     wp_safe_redirect( admin_url( 'admin.php?page=variation-price-display' ) );
                     exit();
                 }
-
+            } else {
+                die( esc_html__( 'Security check', 'variation-price-display' ) ); 
             }
 
         }

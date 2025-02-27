@@ -5,8 +5,8 @@ Requires PHP: 7.2
 Requires at least: 5.8
 WC requires at least: 5.5
 Tested up to: 6.7
-WC tested up to: 9.5
-Stable tag: 1.3.17
+WC tested up to: 9.7
+Stable tag: 1.3.18
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -144,6 +144,12 @@ Yes, price can be changed by change variaitons from dropdown (on single product 
 4. Advanced tab for Premimum version.
 
 == Changelog ==
+
+= 1.3.18 [27-02-2025] =
+* Update: Settings Page.
+* Update: Codebase.
+* Security: Checked codebase.
+* Compatibility: WooCommerce 9.7.
 
 = 1.3.17 [14-01-2025] =
 * Update: Codebase.

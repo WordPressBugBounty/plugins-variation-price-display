@@ -4,7 +4,7 @@
  * Plugin URI: https://wpxtension.com/product/variation-price-display/
  * Description: Adds lots of advanced options to control how you display the price for your WooCommerce variable products.
  * Author: WPXtension
- * Version: 1.3.17
+ * Version: 1.3.18
  * Domain Path: /languages
  * Requires at least: 5.8
  * Tested up to: 6.7

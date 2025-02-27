@@ -2,7 +2,13 @@
 
 <h1>
     <?php echo esc_attr__('Variation Price Display Range for WooCommerce Settings', 'variation-price-display') ?> 
-    <?php echo wp_kses_post( apply_filters( 'vpd_version_title', sprintf( '<small class="wpx-version-title">%s</small>', variation_price_display()->version() ) ) ); ?>
+    <?php 
+    echo wp_kses_post( apply_filters( 'vpd_version_title', sprintf( '<small class="wpx-version-title">%s</small>', variation_price_display()->version() ) ) ); 
+    // Checking nonce of option page form submission
+    if ( isset($_POST['action']) && !wp_verify_nonce( sanitize_key( wp_unslash( 'action', 'action' ) ) ) ){
+        wp_die();
+    }
+    ?>
         
 </h1>
 <?php settings_errors(); ?>
@@ -28,7 +34,7 @@
 ?>
 
 <!-- Here are our tabs -->
-<nav class="nav-tab-wrapper">
+<nav class="nav-tab-wrapper vpd-nav-wrapper">
 <?php 
     $tab = "<a href='?page=variation-price-display' class='nav-tab ".($curTab===null ? 'nav-tab-active' : null)."'> ".__('General', 'variation-price-display')."</a>";
     $tab .= "<a href='?page=variation-price-display&tab=advanced' class='nav-tab ".($curTab==='advanced' ? 'nav-tab-active' : null)."'> ".WPXtension_Setting_Fields::pro_not_exist(Variation_Price_Display::check_plugin_state('variation-price-display-pro')).__(' Advanced', 'variation-price-display')."</a>";

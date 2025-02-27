@@ -27,6 +27,8 @@
           // Callback function to display <tr> based on data
           minMaxConditions( $priceType );
 
+          changeAlternateClass();
+
       });
 
 
@@ -96,6 +98,8 @@
           // Callback function to display <tr> based on data
           exinConditions( $condition );
 
+          changeAlternateClass();
+
       });
 
       // Condition Function for Exclude/Include Condition <tr>
@@ -120,6 +124,14 @@
 
       // Color Picker
       $('.color-field').wpColorPicker();
+
+      function changeAlternateClass(){
+        $('.wpx-table tr:visible:odd').removeClass('alternate');
+        $('.wpx-table tr:visible:even').addClass('alternate');
+      }
+
+      // Kick Start
+      changeAlternateClass();
 
 
     });
