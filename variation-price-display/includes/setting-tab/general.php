@@ -116,7 +116,7 @@
             // Hide Default Price
             WPXtension_Setting_Fields::checkbox(
                 $options = array(
-                    'tr_class' => 'alternate',
+                    'tr_class' => 'alternate parent-hide_price',
                     'label' => esc_attr__('Hide Default Price', 'variation-price-display'),
                     'value' => !empty( get_option('variation_price_display_option') ) ? Variation_Price_Display::get_options()->hide_default_price : 'yes',
                     'name' => 'variation_price_display_option[hide_default_price]',
@@ -155,8 +155,8 @@
                     'need_pro' => false,
                 )
             );
-            // Custom Text
-            WPXtension_Setting_Fields::text(
+            // Product Wrapper Class
+            WPXtension_Setting_Fields::textarea(
                 $options = array(
                     'tr_class' => '',
                     'label' => esc_attr__('Product Wrapper Class', 'variation-price-display'),
@@ -170,8 +170,8 @@
                     'tag' => esc_attr__('New', 'variation-price-display'),
                 )
             ); 
-            // Custom Text
-            WPXtension_Setting_Fields::text(
+            // Price Class to remove
+            WPXtension_Setting_Fields::textarea(
                 $options = array(
                     'tr_class' => 'alternate',
                     'label' => esc_attr__('Remove Price Class', 'variation-price-display'),
@@ -182,6 +182,22 @@
                     'note_info' => __('Keep blank, if you haven\'t any issues with the price changing. This field is for fixing price changing compatibility issue in the product description/singe product page.', 'variation-price-display'),
                     'placeholder' => '.product-inner-wrap .price',
                     'need_pro' => false,
+                )
+            ); 
+
+            // Default Price Classes
+            WPXtension_Setting_Fields::textarea(
+                $options = array(
+                    'tr_class' => 'new child-hide_price',
+                    'label' => esc_attr__('Default Price Class', 'variation-price-display'),
+                    'ele_class' => '',
+                    'value' => Variation_Price_Display::get_options()->default_price_class,
+                    'name' => 'variation_price_display_option[default_price_class]',
+                    'note' => __('Give <code>comma (,)</code> after each target classes. <b>Examples:</b> <code>.single_variation_wrap .woocommerce-variation-price, .single_variation_wrap .variation-price</code>.', 'variation-price-display'),
+                    'note_info' => __('Keep blank, if you haven\'t any issues with "Hide Default Price" option. This field is for fixing the "Hide Default Price" issue in the product description/singe product page.', 'variation-price-display'),
+                    'placeholder' => '.single_variation_wrap .woocommerce-variation-price',
+                    'need_pro' => false,
+                    'tag' => esc_attr__('New', 'variation-price-display'),
                 )
             ); 
 

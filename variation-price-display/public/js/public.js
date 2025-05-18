@@ -5,14 +5,21 @@
         // Getting object from localization
         vpdPublicObject = vpd_public_object;
 
-        var singleVariation, priceContainer, initPrice, prevPrice, vpdPublicObject, product_wrapper;
+        var singleVariation, 
+            priceContainer, 
+            initPrice, 
+            prevPrice, 
+            vpdPublicObject, 
+            product_wrapper, 
+            default_price_class;
 
-        if( vpdPublicObject.wrapperClass !== "" ){
-            product_wrapper = vpdPublicObject.wrapperClass;
-        }
-        else{
-            product_wrapper = '.product.product-type-variable';
-        }
+        default_price_class =   vpdPublicObject.defaultPriceClass ? 
+                                vpdPublicObject.defaultPriceClass : 
+                                '.single_variation_wrap .woocommerce-variation-price';
+
+        product_wrapper =   vpdPublicObject.wrapperClass ? 
+                            vpdPublicObject.wrapperClass : 
+                            '.product.product-type-variable';
 
         // initPrice = prevPrice = $(product_wrapper).find('.price').html();
 
@@ -83,10 +90,10 @@
             // Default Price hiding condition
             switch( vpdPublicObject.hideDefaultPrice ){
                 case 'no':
-                    $(product_wrapper).find('.single_variation_wrap .woocommerce-variation-price').removeClass('hide_default_price');
+                    $(product_wrapper).find(default_price_class).removeClass('hide_default_price');
                     break;
                 default:
-                    $(product_wrapper).find('.single_variation_wrap .woocommerce-variation-price').addClass('hide_default_price'); 
+                    $(product_wrapper).find(default_price_class).addClass('hide_default_price'); 
             }
         }
 

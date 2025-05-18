@@ -11,7 +11,7 @@ class Variation_Price_Display{
 
     protected $_plugin = 'variation-price-display';
 
-    protected $_version = '1.3.18';
+    protected $_version = '1.3.19';
 
     protected static $_instance = null;
 
@@ -166,6 +166,8 @@ class Variation_Price_Display{
             'wrapper_class' => ( empty( $get_option['wrapper_class'] ) ) ? '' : $get_option['wrapper_class'],
 
             'remove_price_class' => ( empty( $get_option['remove_price_class'] ) ) ? '' : $get_option['remove_price_class'],
+
+            'default_price_class' => ( empty( $get_option['default_price_class'] ) ) ? '' : $get_option['default_price_class'],
 
 
             // ### Advanced Settings

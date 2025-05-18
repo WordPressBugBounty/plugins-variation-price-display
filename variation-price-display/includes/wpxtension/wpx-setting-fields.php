@@ -311,6 +311,39 @@ if ( ! class_exists( 'WPXtension_Setting_Fields' ) ) {
             <?php
         }
 
+        public static function textarea($options = []){
+            $pro_exists = isset( $options['pro_exists'] ) ? $options['pro_exists'] : false;
+            $license = isset( $options['license'] ) ? $options['license'] : false;
+            ?>
+                <tr class="<?php echo esc_attr($options['tr_class']); ?>" valign="top" data-new-tag="<?php echo ( isset( $options['tag'] ) ) ? esc_attr($options['tag']) : ''; ?>">
+
+                    <td class="row-title" scope="row">
+                        <label for="tablecell">
+                            <?php
+                                $label = ( $options['need_pro'] === true ) ? self::pro_not_exist($pro_exists) . esc_attr($options['label']) : esc_attr($options['label']);
+                                echo wp_kses_post( $label );
+                            ?>
+                        </label>
+                        <?php $options['need_pro'] === true ? self::pro_link($pro_exists) : ''; ?>
+                    </td>
+                    <td class="<?php echo esc_attr( self::disable_for_pro($options['need_pro'],$pro_exists) ); ?>">
+                        <label>
+                            <textarea class='regular-text<?php echo ( isset( $options['ele_class'] ) ) ? esc_attr($options['ele_class']) : ''; ?>' type='text' name='<?php echo esc_attr($options['name']); ?>' placeholder='<?php echo esc_attr($options['placeholder']); ?>'><?php echo esc_attr( $options['value'] ); ?></textarea>
+                        </label>
+
+                        <?php if( isset( $options['note'] ) && $options['note'] !== ''  ): ?>
+                            <p style="font-style: italic; color: red;"><?php echo wp_kses_post( $options['note'] ); ?></p>
+                        <?php endif; ?>
+
+                        <?php if( isset( $options['note_info'] ) && $options['note_info'] !== ''  ): ?>
+                            <p style="font-style: italic; color: #222;"><?php echo wp_kses_post( $options['note_info'] ); ?></p>
+                        <?php endif; ?>
+                    </td>
+
+                </tr>
+            <?php
+        }
+
     }
 
 }

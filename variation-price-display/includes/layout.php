@@ -4,10 +4,6 @@
     <?php echo esc_attr__('Variation Price Display Range for WooCommerce Settings', 'variation-price-display') ?> 
     <?php 
     echo wp_kses_post( apply_filters( 'vpd_version_title', sprintf( '<small class="wpx-version-title">%s</small>', variation_price_display()->version() ) ) ); 
-    // Checking nonce of option page form submission
-    if ( isset($_POST['action']) && !wp_verify_nonce( sanitize_key( wp_unslash( 'action', 'action' ) ) ) ){
-        wp_die();
-    }
     ?>
         
 </h1>
