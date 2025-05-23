@@ -11,7 +11,7 @@ class Variation_Price_Display{
 
     protected $_plugin = 'variation-price-display';
 
-    protected $_version = '1.3.19';
+    protected $_version = '1.3.20';
 
     protected static $_instance = null;
 

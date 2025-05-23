@@ -74,13 +74,19 @@
                 priceContainer2 = priceContainer.find('.price, .wp-block-woocommerce-product-price')
                             .not('.related .price, .upsell .price, .wp-block-woocommerce-related-products .wp-block-woocommerce-product-price');
             }
-            // Animation Speed `vpdPublicObject.animationSpeed`. parseInt used for converting it to float.
+            // Animation Speed `vpdPublicObject.animationSpeed`. parseInt used for converting it to integer.
             priceContainer2.fadeOut( parseInt( vpdPublicObject.animationSpeed ), function () {
+
+                $(document).trigger('vpd_before_price_fadein', [ variationPrice, priceContainer, init_Price, eventName ]);
+
                 priceContainer2.html(variationPrice).fadeIn( parseInt( vpdPublicObject.animationSpeed ) );
                 prevPrice = variationPrice;
+
+                $(document).trigger('vpd_after_price_fadein', [ variationPrice, priceContainer, init_Price, eventName ]);
+
             });
 
-            $(document).trigger('vpd_after_price_changed', priceContainer);
+            $(document).trigger('vpd_after_price_changed', [ variationPrice, priceContainer, init_Price, eventName ]);
 
             // });
         }
