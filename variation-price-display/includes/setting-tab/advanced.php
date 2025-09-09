@@ -136,10 +136,44 @@
             )
         ); 
 
+        // Display variation discount badge
+        WPXtension_Setting_Fields::checkbox(
+            $options = array(
+                'tr_class' => 'beta',
+                'label' => esc_attr__('Variation discount badge', 'variation-price-display'),
+                'ele_class' => 'display_variation_discount_badge',
+                'value' => !empty( get_option('variation_price_display_option_advanced') ) ? Variation_Price_Display::get_options()->display_variation_discount_badge : 'no',
+                'name' => 'variation_price_display_option_advanced[display_variation_discount_badge]',
+                'default_value' => 'yes', //true or checked
+                'checkbox_label' => __('Enable it to display <b><u>Discount Badge</u></b> after selecting variation(s)', 'variation-price-display'),
+                'note' => 'Also, display badge on variation(s) selection.',
+                'need_pro' => true,
+                'pro_exists' => Variation_Price_Display::check_plugin_state('variation-price-display-pro'),
+                'tag' => esc_attr__('Beta', 'variation-price-display'),
+            )
+        ); 
+
+        // Badge Text
+        WPXtension_Setting_Fields::text(
+            $options = array(
+                'tr_class' => 'alternate new',
+                'label' => esc_attr__('Discount Badge Text', 'variation-price-display'),
+                'ele_class' => ' badge_text',
+                'value' => Variation_Price_Display::get_options()->discount_badge_text,
+                'name' => 'variation_price_display_option_advanced[discount_badge_text]',
+                'note' => __('<b>Examples:</b> <code>%percent% off</code>, </b> <code>Get %percent% off</code>', 'variation-price-display'),
+                'note_info' => __('Update "Badge text format" as you want. <b>Note:</b> Display Badge <b>Percent</b> value as <u>%percent%</u>. (Based on Regular & Sale Price).', 'variation-price-display'),
+                'placeholder' => '%percent% off',
+                'need_pro' => true,
+                'pro_exists' => Variation_Price_Display::check_plugin_state('variation-price-display-pro'),
+                'tag' => esc_attr__('New', 'variation-price-display'),
+            )
+        );
+
         // Badge Color
         WPXtension_Setting_Fields::color(
             $options = array(
-                'tr_class' => 'new',
+                'tr_class' => '',
                 'label' => esc_attr__('Discount Badge Color', 'variation-price-display'),
                 'value' => Variation_Price_Display::get_options()->discount_badge_color,
                 'name' => 'variation_price_display_option_advanced[discount_badge_color]',
@@ -148,14 +182,13 @@
                 'need_pro' => true,
                 'tag' => esc_attr__('New', 'variation-price-display'),
                 'pro_exists' => Variation_Price_Display::check_plugin_state('variation-price-display-pro'),
-                'tag' => esc_attr__('New', 'variation-price-display'),
             )
         ); 
 
         // Badge Text Color
         WPXtension_Setting_Fields::color(
             $options = array(
-                'tr_class' => 'alternate new',
+                'tr_class' => 'alternate',
                 'label' => esc_attr__('Discount Badge Text Color', 'variation-price-display'),
                 'value' => Variation_Price_Display::get_options()->discount_badge_text_color,
                 'name' => 'variation_price_display_option_advanced[discount_badge_text_color]',
@@ -164,7 +197,6 @@
                 'need_pro' => true,
                 'tag' => esc_attr__('New', 'variation-price-display'),
                 'pro_exists' => Variation_Price_Display::check_plugin_state('variation-price-display-pro'),
-                'tag' => esc_attr__('New', 'variation-price-display'),
             )
         ); 
 

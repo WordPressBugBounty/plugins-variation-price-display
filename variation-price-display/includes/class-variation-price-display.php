@@ -11,7 +11,7 @@ class Variation_Price_Display{
 
     protected $_plugin = 'variation-price-display';
 
-    protected $_version = '1.3.20';
+    protected $_version = '1.3.21';
 
     protected static $_instance = null;
 
@@ -62,22 +62,9 @@ class Variation_Price_Display{
      */
     public function init() {
 
-        // Load TextDomain
-        add_action( 'init', array( $this, 'language' ) );
-
         $this->get_backend();
         $this->get_frontend();
     } 
-
-
-    /**
-     *
-     * Load Text Domain Folder
-     *
-     */
-    public function language() {
-        load_plugin_textdomain( "variation-price-display", false, basename( dirname( VARIATION_PRICE_DISPLAY_PLUGIN_FILE ) )."/languages" );
-    }
 
     /*
      * Includes files.
@@ -181,6 +168,10 @@ class Variation_Price_Display{
             'display_variation_sku' => ( empty( $get_option['display_variation_sku'] ) ) ? 'no' : $get_option['display_variation_sku'],
 
             'display_discount_badge' => ( empty( $get_option['display_discount_badge'] ) ) ? 'no' : $get_option['display_discount_badge'],
+
+            'display_variation_discount_badge' => ( empty( $get_option['display_variation_discount_badge'] ) ) ? 'no' : $get_option['display_variation_discount_badge'],
+
+            'discount_badge_text' => ( empty( $get_option['discount_badge_text'] ) ) ? __('%percent% off', 'variation-price-display') : $get_option['discount_badge_text'],
 
             'disable_price_format_for_admin' => ( empty( $get_option['disable_price_format_for_admin'] ) ) ? 'no' : $get_option['disable_price_format_for_admin'],
             

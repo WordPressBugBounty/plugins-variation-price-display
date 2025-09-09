@@ -5,8 +5,8 @@ Requires PHP: 7.2
 Requires at least: 5.8
 WC requires at least: 5.5
 Tested up to: 6.8
-WC tested up to: 9.8
-Stable tag: 1.3.20
+WC tested up to: 10.1.2
+Stable tag: 1.3.21
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -86,6 +86,12 @@ Disable price range for specific product categories by excluding categories from
 🔥 **Display Discount Badge**
 This option is particularly useful when you want to sell product variations at different prices or offer a discount on specific variations. It'll show a discounted badge when the feature is enabled.
 
+🔥 **Variation discount badge(Beta)**
+This feature automatically displays a badge when customers select a specific product variation combination.
+
+🔥 **Editable Discount Badge Text and Style**
+You can fully customize the discount text to fit your shop’s needs. The badge background color and text color are also adjustable for a perfect match with your store design.
+
 🔥 **Enable / Disable Price for Admin**
 By enabling this option, **Variation Price Display** will be disabled for the admin. This feature makes it easier for admin to view the actual product price range on the shop page.
 
@@ -117,6 +123,7 @@ Disable the price until the selection of variation dropdown(s). After selecting 
 👉 [Fast Cart for WooCommerce](https://wordpress.org/plugins/fast-cart/)
 👉 [Product Variation Table for WooCommerce - PVT](https://wordpress.org/plugins/product-variant-table-for-woocommerce/)
 👉 [Social Share for WooCommerce](https://wordpress.org/plugins/product-share/)
+👉 [VariationX – Variations as Radio Buttons for WooCommerce](https://wordpress.org/plugins/variations-as-radio-buttons/)
 
 == Installation ==
 
@@ -144,6 +151,12 @@ Yes, price can be changed by change variaitons from dropdown (on single product 
 4. Advanced tab for Premimum version.
 
 == Changelog ==
+
+= 1.3.21 [09-09-2025] =
+* Update: Plugin Settings.
+* Remove: `load_plugin_textdomain()` as it has been discouraged since WordPress version 4.6. When a plugin is hosted on WordPress.org, it is not necessary to manually include this function call for translations under the plugin slug. WordPress will automatically load the translations when needed.
+* Update: Plugin public Script.
+* Compatibility: WooCommerce 10.1.2.
 
 = 1.3.20 [23-05-2025] =
 * Add: Trigger `vpd_before_price_fadein` & `vpd_after_price_fadein` for plugin compatibility.

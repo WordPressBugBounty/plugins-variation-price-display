@@ -61,55 +61,59 @@
                     ?>
 
                 </div>
-
-                <p class="submit submitbox vpd-setting-btn">
                     
-                    <?php 
+                <?php 
 
-                    // Making Nonce URL for Reset Link
+                // Making Nonce URL for Reset Link
 
-                    $current_page = 'variation-price-display';
-                    $current_tab = $curTab;
+                $current_page = 'variation-price-display';
+                $current_tab = $curTab;
 
-                    $reset_url_args = array(
-                        'action'   => 'reset',
-                        '_wpnonce' => wp_create_nonce( 'vpd-settings' ),
-                    );
+                $reset_url_args = array(
+                    'action'   => 'reset',
+                    '_wpnonce' => wp_create_nonce( 'vpd-settings' ),
+                );
 
-                    $action_url_args = array(
-                        'page'    => $current_page,
-                        'tab'     => $current_tab,
-                    );
+                $action_url_args = array(
+                    'page'    => $current_page,
+                    'tab'     => $current_tab,
+                );
 
-                    $reset_url  = add_query_arg( wp_parse_args( $reset_url_args, $action_url_args ), admin_url( 'admin.php' ) );
+                $reset_url  = add_query_arg( wp_parse_args( $reset_url_args, $action_url_args ), admin_url( 'admin.php' ) );
 
-                    /**
-                     * 
-                     * Condition if companion installed and activated display the submit/reset button for all tab
-                     * if companion is not activated then display submit/reset button only for General tab
-                     * 
-                     * @since 1.3.11
-                     * 
-                     * @return $curTab returns null for General tab
-                     * 
-                     */ 
+                /**
+                 * 
+                 * Condition if companion installed and activated display the submit/reset button for all tab
+                 * if companion is not activated then display submit/reset button only for General tab
+                 * 
+                 * @since 1.3.11
+                 * 
+                 * @updated 1.3.21
+                 * 
+                 * @return $curTab returns null for General tab
+                 * 
+                 */ 
 
-                    if( Variation_Price_Display::check_plugin_state('variation-price-display-pro') ){
-                        submit_button( __( 'Save Settings', 'variation-price-display' ), 'primary', 'vpd-save-settings', false); 
-                    ?>
+                if( Variation_Price_Display::check_plugin_state('variation-price-display-pro') ){
+                ?>
+                    <p class="submit submitbox vpd-setting-btn">
+
+                        <?php submit_button( __( 'Save Settings', 'variation-price-display' ), 'primary', 'vpd-save-settings', false); ?>
+
                         <a onclick="return confirm('<?php esc_html_e( 'Are you sure to reset?', 'variation-price-display' ) ?>')" class="submitdelete" href="<?php echo esc_url( $reset_url ) ?>"><?php esc_attr_e( 'Reset Current Tab', 'variation-price-display' ); ?></a>
-                    <?php
-                    }
-                    if( !Variation_Price_Display::check_plugin_state('variation-price-display-pro') && null === $curTab ){
-                        submit_button( __( 'Save Settings', 'variation-price-display' ), 'primary', 'vpd-save-settings', false); 
-                    ?>
+                    </p>
+                <?php
+                }
+                if( !Variation_Price_Display::check_plugin_state('variation-price-display-pro') && null === $curTab ){
+                ?>
+                    <p class="submit submitbox vpd-setting-btn">
+                        <?php submit_button( __( 'Save Settings', 'variation-price-display' ), 'primary', 'vpd-save-settings', false); ?>
                         <a onclick="return confirm('<?php esc_html_e( 'Are you sure to reset?', 'variation-price-display' ) ?>')" class="submitdelete" href="<?php echo esc_url( $reset_url ) ?>"><?php esc_attr_e( 'Reset Current Tab', 'variation-price-display' ); ?></a>
-                    <?php
-                    }
+                    </p>
+                <?php
+                }
 
-                    ?>
-                    
-                </p>
+                ?>
                 
 
             </form>

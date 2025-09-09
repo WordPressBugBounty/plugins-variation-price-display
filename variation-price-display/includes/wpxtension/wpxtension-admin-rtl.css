@@ -104,7 +104,8 @@ label.wpx-number-group span {
 
 
 /*New Tag CSS*/
-.wpx-table tr.new{
+.wpx-table tr.new,
+.wpx-table tr.beta{
   position: relative;
 }
 
@@ -124,6 +125,18 @@ label.wpx-number-group span {
   font-size: 9px;
 }
 
+.wpx-table tr.beta:after {
+  content: attr(data-new-tag);
+  position: absolute;
+  background: #b78755;
+  color: white;
+  padding: 0 3px;
+  line-height: 2;
+  bottom: 0;
+  left: 0;
+  font-size: 9px;
+}
+
 /* Badge CSS for Version number */
 .wpx-version-title {
     background-color: #c3c4c7;
@@ -131,4 +144,34 @@ label.wpx-number-group span {
     color: #ffffff;
     border-radius: 50px;
     font-size: 12px;
+}
+
+/* Toogle Button CSS */
+.wpx-toggle-wrapper {
+  display: inline-flex;
+  border: 1px solid #c3c4c7;
+  border-radius: 34px;
+  overflow: hidden;
+  width: 90px;
+  font-family: sans-serif;
+}
+
+.wpx-toggle-wrapper input[type="radio"] {
+  display: none;
+}
+
+.wpx-toggle-label {
+  flex: 1;
+  text-align: center;
+  padding: 4px 0;
+  cursor: pointer;
+  background: #eee;
+  color: #333;
+  transition: 0.3s;
+}
+
+.wpx-toggle-wrapper input[type="radio"]:checked + label[data-label-for="radio-yes"],
+.wpx-toggle-wrapper input[type="radio"]:checked + label[data-label-for="radio-no"] {
+  background: #8014f9;
+  color: #fff;
 }

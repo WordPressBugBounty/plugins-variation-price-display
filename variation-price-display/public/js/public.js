@@ -39,7 +39,7 @@
                 // Checking price_html is Empty string, undefined, null or not
                 if( variation.price_html ){
                     // Passing variation price to the function
-                    $(document.body).trigger('vpd_show_variation_price', [ variationPrice, $(this), initPrice, 'show_variation' ]);
+                    $(document.body).trigger('vpd_show_variation_price', [ variationPrice, $(this), initPrice, 'show_variation', variation ]);
                     hideDefaultPrice();
                 }
             }
