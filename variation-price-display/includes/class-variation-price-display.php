@@ -11,7 +11,7 @@ class Variation_Price_Display{
 
     protected $_plugin = 'variation-price-display';
 
-    protected $_version = '1.3.21';
+    protected $_version = '1.4.1';
 
     protected static $_instance = null;
 
@@ -192,7 +192,7 @@ class Variation_Price_Display{
 
         );
 
-        return (object) apply_filters( 'vpd_options', $options );
+        return (object) apply_filters( 'variation_price_display_options', $options );
     }
 
     /**

@@ -1,3 +1,5 @@
+<?php defined( 'ABSPATH' ) or die( 'Keep Silent' ); ?>
+
 <section class="advnaced" id="vpd-advanced-section">
 
 <h3><?php esc_attr_e('Advanced Settings', 'variation-price-display'); ?></h3>
@@ -9,13 +11,13 @@
 
         // Display Condition
         WPXtension_Setting_Fields::select(
-            $options = array(
+            $variation_price_display_options = array(
                 'tr_class' => 'alternate',
                 'label' => esc_attr__('Display Condition', 'variation-price-display'),
                 'ele_class' => ' display_condition',
                 'value' => Variation_Price_Display::get_options()->display_condition,
                 'name' => 'variation_price_display_option_advanced[display_condition]',
-                'option' => apply_filters('vpd_display_conditio_html', array(
+                'option' => apply_filters('variation_price_display_display_conditio_html', array(
                     'option_1' => array(
                         'name' => __( 'Shop/Archive Page ', 'variation-price-display' ),
                         'value' => 'shop',
@@ -40,13 +42,13 @@
 
          // Exclude/Include Condition
         WPXtension_Setting_Fields::select(
-            $options = array(
+            $variation_price_display_options = array(
                 'tr_class' => '',
                 'label' => esc_attr__('Exclude/Include Condition', 'variation-price-display'),
                 'ele_class' => ' exin_condition',
                 'value' => Variation_Price_Display::get_options()->exin_condition,
                 'name' => 'variation_price_display_option_advanced[exin_condition]',
-                'option' => apply_filters('vpd_display_conditio_html', array(
+                'option' => apply_filters('variation_price_display_display_condition_html', array(
                     'option_1' => array(
                         'name' => __( 'None ', 'variation-price-display' ),
                         'value' => 'none',
@@ -73,28 +75,28 @@
 
         // Disable VPD based on categories
         
-        $cat_options = array();
-        $i = 0;
+        $variation_price_display_cat_options = array();
+        $variation_price_display_i = 0;
         
-        foreach( Variation_Price_Display::get_categories() as $cat ){ $i++;
-            $cat_options += array(
-                'option_'.$i => array(
+        foreach( Variation_Price_Display::get_categories() as $cat ){ $variation_price_display_i++;
+            $variation_price_display_cat_options += array(
+                'option_'.$variation_price_display_i => array(
                     'name' => $cat->name,
                     'value' => $cat->term_id,
                     'need_pro' => true,
                 )
             );
         }
-        // print_r($cat_options);
+        // print_r($variation_price_display_cat_options);
 
         WPXtension_Setting_Fields::multiselect(
-            $options = array(
+            $variation_price_display_options = array(
                 'tr_class' => 'alternate',
                 'label' => esc_attr__('Select Categories', 'variation-price-display'),
                 'ele_class' => ' categories wpx-multiselect',
                 'value' => Variation_Price_Display::get_options()->categories,
                 'name' => 'variation_price_display_option_advanced[categories][]',
-                'option' => apply_filters('vpd_categories', $cat_options),
+                'option' => apply_filters('variation_price_display_categories', $variation_price_display_cat_options),
                 'note' => '',
                 'need_pro' => true,
                 'pro_exists' => Variation_Price_Display::check_plugin_state('variation-price-display-pro'),
@@ -104,7 +106,7 @@
 
         // SKU with variation name
         WPXtension_Setting_Fields::checkbox(
-            $options = array(
+            $variation_price_display_options = array(
                 'tr_class' => '',
                 'label' => esc_attr__('SKU with variation name', 'variation-price-display'),
                 'ele_class' => 'display_variation_sku',
@@ -121,7 +123,7 @@
 
         // Display discount badge
         WPXtension_Setting_Fields::checkbox(
-            $options = array(
+            $variation_price_display_options = array(
                 'tr_class' => 'alternate',
                 'label' => esc_attr__('Display discount badge', 'variation-price-display'),
                 'ele_class' => 'display_discount_badge',
@@ -138,7 +140,7 @@
 
         // Display variation discount badge
         WPXtension_Setting_Fields::checkbox(
-            $options = array(
+            $variation_price_display_options = array(
                 'tr_class' => 'beta',
                 'label' => esc_attr__('Variation discount badge', 'variation-price-display'),
                 'ele_class' => 'display_variation_discount_badge',
@@ -155,7 +157,7 @@
 
         // Badge Text
         WPXtension_Setting_Fields::text(
-            $options = array(
+            $variation_price_display_options = array(
                 'tr_class' => 'alternate new',
                 'label' => esc_attr__('Discount Badge Text', 'variation-price-display'),
                 'ele_class' => ' badge_text',
@@ -172,7 +174,7 @@
 
         // Badge Color
         WPXtension_Setting_Fields::color(
-            $options = array(
+            $variation_price_display_options = array(
                 'tr_class' => '',
                 'label' => esc_attr__('Discount Badge Color', 'variation-price-display'),
                 'value' => Variation_Price_Display::get_options()->discount_badge_color,
@@ -187,7 +189,7 @@
 
         // Badge Text Color
         WPXtension_Setting_Fields::color(
-            $options = array(
+            $variation_price_display_options = array(
                 'tr_class' => 'alternate',
                 'label' => esc_attr__('Discount Badge Text Color', 'variation-price-display'),
                 'value' => Variation_Price_Display::get_options()->discount_badge_text_color,
@@ -203,7 +205,7 @@
 
         // Disable Price for Admin
         WPXtension_Setting_Fields::checkbox(
-            $options = array(
+            $variation_price_display_options = array(
                 'tr_class' => '',
                 'label' => esc_attr__('Disable Price for Admin', 'variation-price-display'),
                 'ele_class' => 'disable_price_format_for_admin',
@@ -221,7 +223,7 @@
         // Disable product name from the list all variation
 
         WPXtension_Setting_Fields::checkbox(
-            $options = array(
+            $variation_price_display_options = array(
                 'tr_class' => 'alternate',
                 'label' => esc_attr__('Disable Product Name', 'variation-price-display'),
                 'ele_class' => 'disable_product_name',
@@ -241,7 +243,7 @@
         /*@note: Display this option if the Format Sale Price is checked or enabled*/
         if( 'yes' === Variation_Price_Display::get_options()->format_sale_price ){
             WPXtension_Setting_Fields::checkbox(
-                $options         = array(
+                $variation_price_display_options         = array(
                     'tr_class'       => '',
                     'label'          => esc_attr__('Reverse Format Sale Price', 'variation-price-display'),
                     'ele_class'      => 'reverse_format_sale_price',
@@ -260,7 +262,7 @@
 
         // Enable Price Display for Grouped Product
         WPXtension_Setting_Fields::checkbox(
-            $options = array(
+            $variation_price_display_options = array(
                 'tr_class' => '',
                 'label' => esc_attr__('Enable for Grouped Product', 'variation-price-display'),
                 'ele_class' => 'enable_for_grouped_product',
@@ -278,7 +280,7 @@
 
         // Animation Speed
         WPXtension_Setting_Fields::number(
-            $options = array(
+            $variation_price_display_options = array(
                 'tr_class' => ' alternate new',
                 'label' => esc_attr__('Animation Speed', 'variation-price-display'),
                 'ele_class' => '',
@@ -298,7 +300,7 @@
 
         // Hide Price till select dropdowns
         WPXtension_Setting_Fields::checkbox(
-            $options = array(
+            $variation_price_display_options = array(
                 'tr_class' => 'new',
                 'label' => esc_attr__('Hide Price', 'variation-price-display'),
                 'ele_class' => 'hide_price',

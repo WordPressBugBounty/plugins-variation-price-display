@@ -1,5 +1,7 @@
 <?php 
 
+defined( 'ABSPATH' ) or die( 'Keep Silent' );
+
 class Variation_Price_Display_Front{
 
 	protected static $_instance = null;
@@ -34,7 +36,7 @@ class Variation_Price_Display_Front{
     	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
     	// Disable scripts while needed
-    	if( apply_filters( 'disable_vpd_scripts', false ) ) {
+    	if( apply_filters( 'variation_price_display_disable_scripts', false ) ) {
 			return;
 		}
 
@@ -48,7 +50,7 @@ class Variation_Price_Display_Front{
                 'hideDefaultPrice' => !empty( get_option('variation_price_display_option') ) ? Variation_Price_Display::get_options()->hide_default_price : 'yes',
                 'wrapperClass' => Variation_Price_Display::get_options()->wrapper_class,
                 'removePriceClass' => Variation_Price_Display::get_options()->remove_price_class,
-                'animationSpeed' => apply_filters( 'vpd_price_change_animation_speed', 200 ),
+                'animationSpeed' => apply_filters( 'variation_price_display_price_change_animation_speed', 200 ),
                 'defaultPriceClass' => Variation_Price_Display::get_options()->default_price_class,
             )
         );
@@ -56,7 +58,7 @@ class Variation_Price_Display_Front{
     }
 
     public function adding_body_class( $classes ){
-    	if( is_product() || is_shop() ) $classes[] = apply_filters( 'wpx_body_class_for_variation-price-display', 'vpd-loaded' );
+    	if( is_product() || is_shop() ) $classes[] = apply_filters( 'variation_price_display_body_class', 'vpd-loaded' );
     	return $classes;
     }
 
@@ -70,7 +72,7 @@ class Variation_Price_Display_Front{
 
 	    $count  = (int) count( array_unique( $variation_prices['price'] ));
 
-		if( $count === apply_filters('vpd_variation_same_price_count', 1) ){
+		if( $count === apply_filters('variation_price_display_variation_same_price_count', 1) ){
 
 			return $price;
 
@@ -78,7 +80,7 @@ class Variation_Price_Display_Front{
 
 		// Disable VPD filter
 
-		if( apply_filters( 'disable_vpd_price_format', false, $price, $product ) ){
+		if( apply_filters( 'variation_price_display_disable_price_format', false, $price, $product ) ){
 
 			return $price;
 
@@ -100,7 +102,7 @@ class Variation_Price_Display_Front{
 			  	// $min_price = wc_price( $product->get_variation_price( 'min', true ) );
 			  	$min_price = $this->format_price( $format_sale_price, 'min', $product );
 
-				$prices = apply_filters( 'vpd_prefix_min_price', $before_min_price ) . $min_price;
+				$prices = apply_filters( 'variation_price_display_prefix_min_price', $before_min_price ) . $min_price;
 				
 			    break;
 
@@ -110,7 +112,7 @@ class Variation_Price_Display_Front{
 
 			  	$max_price = $this->format_price( $format_sale_price, 'max', $product );
 
-				$prices = apply_filters( 'vpd_prefix_max_price', $before_max_price ) . $max_price;
+				$prices = apply_filters( 'variation_price_display_prefix_max_price', $before_max_price ) . $max_price;
 
 			    break;
 
@@ -145,7 +147,7 @@ class Variation_Price_Display_Front{
 
 			}
 
-			$vpd_price = apply_filters( 'vpd_woocommerce_variable_price_html', $prices . $product->get_price_suffix(), $product, $price, $price_types );
+			$vpd_price = apply_filters( 'variation_price_display_woocommerce_variable_price_html', $prices . $product->get_price_suffix(), $product, $price, $price_types );
 
 			return $vpd_price;
 		
@@ -168,11 +170,11 @@ class Variation_Price_Display_Front{
 		  		/**
 		  		 * { Hook added for format sale price option }
 		  		 * 
-		  		 * @hook: `vpd_format_sale_price_display`
+		  		 * @hook: `variation_price_display_format_sale_price_display`
 		  		 *
 		  		 * @var        callable
 		  		 */
-				$formatted_price =  apply_filters( 'vpd_format_sale_price_display', 
+				$formatted_price =  apply_filters( 'variation_price_display_format_sale_price_display', 
 					wc_format_sale_price( wc_price( $product->get_variation_regular_price( $type, true ) ), wc_price( $product->get_variation_sale_price( $type, true ) ) ),
 					$product->get_variation_regular_price( $type, true ),
 					$product->get_variation_sale_price( $type, true )
@@ -184,7 +186,7 @@ class Variation_Price_Display_Front{
 
 			}
 
-			$price = apply_filters( 'vpd_formatted_price', $formatted_price, $type, $product );
+			$price = apply_filters( 'variation_price_display_formatted_price', $formatted_price, $type, $product );
 
 			break;
 
@@ -192,11 +194,11 @@ class Variation_Price_Display_Front{
 
 		  	$formatted_price = wc_price( $product->get_variation_price( $type, true ) );
 
-			$price = apply_filters( 'vpd_non_formatted_price', $formatted_price, $type, $product );
+			$price = apply_filters( 'variation_price_display_non_formatted_price', $formatted_price, $type, $product );
 
 		}
 
-		return apply_filters('vpd_format_price_fiter', $price, $type, $product);
+		return apply_filters('variation_price_display_format_price_filter', $price, $type, $product);
 	}
 
 
@@ -225,7 +227,7 @@ class Variation_Price_Display_Front{
 		// Pushing the initial price [if WC_Product class initialized]
 		$default['vpd_init_price'] = ( $parent_product != null || $parent_product != false ) ? $parent_product->get_price_html() : '';
 
-		return apply_filters( 'vpd_woocommerce_available_variation', $default, $class, $variation );
+		return apply_filters( 'variation_price_display_woocommerce_available_variation', $default, $class, $variation );
 
 	}
 

@@ -1,6 +1,6 @@
 {
   "name": "variaton-price-display",
-  "version": "1.3.21",
+  "version": "1.4.1",
   "description": "Adds lots of advanced options to control how you display the price for your WooCommerce variable products.",
   "main": "index.js",
   "scripts": {

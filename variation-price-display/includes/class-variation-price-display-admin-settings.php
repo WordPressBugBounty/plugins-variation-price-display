@@ -1,5 +1,7 @@
 <?php
 
+defined( 'ABSPATH' ) or die( 'Keep Silent' );
+
 class Variation_Price_Display_Admin_Settings{
 	
 	protected static $_instance = null;
@@ -17,13 +19,13 @@ class Variation_Price_Display_Admin_Settings{
         add_action( 'admin_init', array( __CLASS__, 'register_plugin_setting' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'admin_assets' ) );
         // Tab Sections
-        add_action('vpd_setting_tab_content', array( __CLASS__, 'tab_contents' ), 10, 2);
+        add_action('variation_price_display_setting_tab_content', array( __CLASS__, 'tab_contents' ), 10, 2);
         // Settings Link
         add_filter( 'plugin_action_links_variation-price-display/variation-price-display.php', array( $this, 'settings_link') );
         // Plugin row meta link
         add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 4 );
         // Clear Settings
-        add_action('vpd_layout_start', array( $this, 'reset_setting' ) );
+        add_action('variation_price_display_layout_start', array( $this, 'reset_setting' ) );
         // Update Settings
         add_action( 'admin_init', array( $this, 'upgrade_option' ) );
 

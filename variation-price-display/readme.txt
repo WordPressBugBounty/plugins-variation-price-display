@@ -1,12 +1,13 @@
 === Variation Price Display Range for WooCommerce ===
 Contributors: wpxteam
+Donate link: https://wpxtension.com
 Tags: price, price display, variation price, WooCommerce variation price, WooCommerce remove price range
 Requires PHP: 7.2
 Requires at least: 5.8
 WC requires at least: 5.5
-Tested up to: 6.8
-WC tested up to: 10.1.2
-Stable tag: 1.3.21
+Tested up to: 6.9
+WC tested up to: 10.4.3
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -151,6 +152,17 @@ Yes, price can be changed by change variaitons from dropdown (on single product 
 4. Advanced tab for Premimum version.
 
 == Changelog ==
+
+= 1.4.1 [04-02-2026] Wednesday =
+* Security- Check based on Plugin Check Plugin (PCP).
+* Compatibility: WooCommerce 10.4.3
+
+= 1.4.0 [04-12-2025] =
+* Update: All hooks follow the Plugin Check Plugin (PCP) WPCS coding standards. If you’ve added custom code using Variation Price Display php hooks, please replace the `vpd_` prefixes with `variation_price_display_`.
+* Update: Hooks- 
+	- **Previous:** `disable_vpd_scripts` **Present:** `variation_price_display_disable_scripts`
+	- **Note** The JavaScript events/triggers remain in their current state.
+* Compatibility: Tested with WordPress 6.9 & WooCommerce 10.3.6.
 
 = 1.3.21 [09-09-2025] =
 * Update: Plugin Settings.

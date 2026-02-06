@@ -1,15 +1,15 @@
-# Copyright (C) 2025 WPXtension
+# Copyright (C) 2026 WPXtension
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Variation Price Display Range for WooCommerce 1.3.21\n"
+"Project-Id-Version: Variation Price Display Range for WooCommerce 1.4.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/variation-price-display\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: WPXtension <wpxtension@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-09T06:22:55+00:00\n"
+"POT-Creation-Date: 2026-02-04T08:44:01+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: variation-price-display\n"
@@ -39,23 +39,23 @@ msgstr ""
 msgid "https://wpxtension.com/"
 msgstr ""
 
-#: includes/class-variation-price-display-admin-settings.php:140
+#: includes/class-variation-price-display-admin-settings.php:142
 msgid "Settings"
 msgstr ""
 
-#: includes/class-variation-price-display-admin-settings.php:146
+#: includes/class-variation-price-display-admin-settings.php:148
 msgid "Go Premium"
 msgstr ""
 
-#: includes/class-variation-price-display-admin-settings.php:203
+#: includes/class-variation-price-display-admin-settings.php:205
 msgid "Security check"
 msgstr ""
 
-#: includes/class-variation-price-display-front.php:98
+#: includes/class-variation-price-display-front.php:100
 msgid "From&nbsp;"
 msgstr ""
 
-#: includes/class-variation-price-display-front.php:109
+#: includes/class-variation-price-display-front.php:111
 msgid "Up&nbsp;To&nbsp;"
 msgstr ""
 
@@ -67,7 +67,7 @@ msgstr ""
 msgid "%percent% off"
 msgstr ""
 
-#: includes/layout.php:4
+#: includes/layout.php:6
 msgid "Variation Price Display Range for WooCommerce Settings"
 msgstr ""
 
@@ -94,316 +94,316 @@ msgstr ""
 msgid "Reset Current Tab"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:3
+#: includes/setting-tab/advanced.php:5
 msgid "Advanced Settings"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:4
+#: includes/setting-tab/advanced.php:6
 msgid "The advanced options to control your price format"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:14
+#: includes/setting-tab/advanced.php:16
 msgid "Display Condition"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:20
+#: includes/setting-tab/advanced.php:22
 msgid "Shop/Archive Page "
 msgstr ""
 
-#: includes/setting-tab/advanced.php:25
+#: includes/setting-tab/advanced.php:27
 msgid "Single Product/Product Description Page "
 msgstr ""
 
-#: includes/setting-tab/advanced.php:30
+#: includes/setting-tab/advanced.php:32
 msgid "Both Shop and Single Product Page "
 msgstr ""
 
-#: includes/setting-tab/advanced.php:45
+#: includes/setting-tab/advanced.php:47
 msgid "Exclude/Include Condition"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:51
+#: includes/setting-tab/advanced.php:53
 msgid "None "
 msgstr ""
 
-#: includes/setting-tab/advanced.php:56
+#: includes/setting-tab/advanced.php:58
 msgid "Exclude Categories "
 msgstr ""
 
-#: includes/setting-tab/advanced.php:61
+#: includes/setting-tab/advanced.php:63
 msgid "Include Categories "
 msgstr ""
 
-#: includes/setting-tab/advanced.php:93
+#: includes/setting-tab/advanced.php:95
 msgid "Select Categories"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:109
+#: includes/setting-tab/advanced.php:111
 msgid "SKU with variation name"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:114
+#: includes/setting-tab/advanced.php:116
 msgid "Enable it to display <b><u>SKU</u></b>, if <b>Price Types:</b> <i>List all variation price/List all price</i>."
 msgstr ""
 
-#: includes/setting-tab/advanced.php:116
+#: includes/setting-tab/advanced.php:118
 msgid "<b>For Example:</b> <code>Hoodie – Blue, Yes (woo-hoodie-blue-logo) – <del>$40.00</del> $38.00</code>."
 msgstr ""
 
-#: includes/setting-tab/advanced.php:126
+#: includes/setting-tab/advanced.php:128
 msgid "Display discount badge"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:131
+#: includes/setting-tab/advanced.php:133
 msgid "Enable it to display <b><u>Discount Badge</u></b>"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:133
+#: includes/setting-tab/advanced.php:135
 msgid "<b>Note:</b> To get it to work with <b>[Minimum/Maximum Price]</b>, please enable <b>Format Sale Price</b> option from <b>General Tab</b>. This option will also work with <b>List all variation price</b> but will not work if Grouped Child product is not a variable product."
 msgstr ""
 
-#: includes/setting-tab/advanced.php:143
+#: includes/setting-tab/advanced.php:145
 msgid "Variation discount badge"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:148
+#: includes/setting-tab/advanced.php:150
 msgid "Enable it to display <b><u>Discount Badge</u></b> after selecting variation(s)"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:152
+#: includes/setting-tab/advanced.php:154
 msgid "Beta"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:160
+#: includes/setting-tab/advanced.php:162
 msgid "Discount Badge Text"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:164
+#: includes/setting-tab/advanced.php:166
 msgid "<b>Examples:</b> <code>%percent% off</code>, </b> <code>Get %percent% off</code>"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:165
+#: includes/setting-tab/advanced.php:167
 msgid "Update \"Badge text format\" as you want. <b>Note:</b> Display Badge <b>Percent</b> value as <u>%percent%</u>. (Based on Regular & Sale Price)."
 msgstr ""
 
-#: includes/setting-tab/advanced.php:169
-#: includes/setting-tab/advanced.php:183
-#: includes/setting-tab/advanced.php:198
-#: includes/setting-tab/advanced.php:236
-#: includes/setting-tab/advanced.php:256
-#: includes/setting-tab/advanced.php:275
-#: includes/setting-tab/advanced.php:295
-#: includes/setting-tab/advanced.php:312
-#: includes/setting-tab/general.php:170
-#: includes/setting-tab/general.php:200
+#: includes/setting-tab/advanced.php:171
+#: includes/setting-tab/advanced.php:185
+#: includes/setting-tab/advanced.php:200
+#: includes/setting-tab/advanced.php:238
+#: includes/setting-tab/advanced.php:258
+#: includes/setting-tab/advanced.php:277
+#: includes/setting-tab/advanced.php:297
+#: includes/setting-tab/advanced.php:314
+#: includes/setting-tab/general.php:172
+#: includes/setting-tab/general.php:202
 msgid "New"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:177
+#: includes/setting-tab/advanced.php:179
 msgid "Discount Badge Color"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:192
+#: includes/setting-tab/advanced.php:194
 msgid "Discount Badge Text Color"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:208
+#: includes/setting-tab/advanced.php:210
 msgid "Disable Price for Admin"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:213
+#: includes/setting-tab/advanced.php:215
 msgid "Disable Price Format for the Admin."
 msgstr ""
 
-#: includes/setting-tab/advanced.php:215
+#: includes/setting-tab/advanced.php:217
 msgid "<b>Note:</b> By enabling this option, Admin can see the default price range while logged in."
 msgstr ""
 
-#: includes/setting-tab/advanced.php:226
+#: includes/setting-tab/advanced.php:228
 msgid "Disable Product Name"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:231
+#: includes/setting-tab/advanced.php:233
 msgid "Disable Product Name When Price Type is <b><u>List All Variation</u></b>."
 msgstr ""
 
-#: includes/setting-tab/advanced.php:233
+#: includes/setting-tab/advanced.php:235
 msgid "<b>Note:</b> By enabling this option, Product Name will be removed when you have selected <b>List all variation price</b>."
 msgstr ""
 
-#: includes/setting-tab/advanced.php:246
+#: includes/setting-tab/advanced.php:248
 msgid "Reverse Format Sale Price"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:251
+#: includes/setting-tab/advanced.php:253
 msgid "Change the format sale price in different Format."
 msgstr ""
 
-#: includes/setting-tab/advanced.php:252
+#: includes/setting-tab/advanced.php:254
 msgid "Note: It will not work for List all varition price/ List all price"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:265
+#: includes/setting-tab/advanced.php:267
 msgid "Enable for Grouped Product"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:270
+#: includes/setting-tab/advanced.php:272
 msgid "Enable Price Display for Grouped Product type."
 msgstr ""
 
-#: includes/setting-tab/advanced.php:272
+#: includes/setting-tab/advanced.php:274
 msgid "<b>Note:</b> By enabling this option, Price settings (Price types) will be applied on Grouped Products."
 msgstr ""
 
-#: includes/setting-tab/advanced.php:283
+#: includes/setting-tab/advanced.php:285
 msgid "Animation Speed"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:292
+#: includes/setting-tab/advanced.php:294
 msgid "Price change animation speed (on changing variation)."
 msgstr ""
 
-#: includes/setting-tab/advanced.php:303
+#: includes/setting-tab/advanced.php:305
 msgid "Hide Price"
 msgstr ""
 
-#: includes/setting-tab/advanced.php:308
+#: includes/setting-tab/advanced.php:310
 msgid "Hide the price untill select the variation dropdowns"
 msgstr ""
 
-#: includes/setting-tab/general.php:3
+#: includes/setting-tab/general.php:5
 msgid "Variation Prices"
 msgstr ""
 
-#: includes/setting-tab/general.php:4
+#: includes/setting-tab/general.php:6
 msgid "Replace the WooCommerce variation price range with any other format"
 msgstr ""
 
-#: includes/setting-tab/general.php:13
+#: includes/setting-tab/general.php:15
 msgid "Price types"
 msgstr ""
 
-#: includes/setting-tab/general.php:19
+#: includes/setting-tab/general.php:21
 msgid "Minimum Price"
 msgstr ""
 
-#: includes/setting-tab/general.php:24
+#: includes/setting-tab/general.php:26
 msgid "Maximum Price"
 msgstr ""
 
-#: includes/setting-tab/general.php:29
+#: includes/setting-tab/general.php:31
 msgid "Minimum to Maximum Price"
 msgstr ""
 
-#: includes/setting-tab/general.php:34
+#: includes/setting-tab/general.php:36
 msgid "Maximum to Minimum Price"
 msgstr ""
 
-#: includes/setting-tab/general.php:39
+#: includes/setting-tab/general.php:41
 msgid "List all variation price"
 msgstr ""
 
-#: includes/setting-tab/general.php:39
+#: includes/setting-tab/general.php:41
 msgid "List all price"
 msgstr ""
 
-#: includes/setting-tab/general.php:44
+#: includes/setting-tab/general.php:46
 msgid "Custom"
 msgstr ""
 
-#: includes/setting-tab/general.php:59
+#: includes/setting-tab/general.php:61
 msgid "Add From"
 msgstr ""
 
-#: includes/setting-tab/general.php:64
+#: includes/setting-tab/general.php:66
 msgid "Enable it to display <b><u>From</u></b> before Minimum Price."
 msgstr ""
 
-#: includes/setting-tab/general.php:75
+#: includes/setting-tab/general.php:77
 msgid "Add Up To"
 msgstr ""
 
-#: includes/setting-tab/general.php:80
+#: includes/setting-tab/general.php:82
 msgid "Enable it to display <b><u>Up To</u></b> before Maximum Price."
 msgstr ""
 
-#: includes/setting-tab/general.php:90
+#: includes/setting-tab/general.php:92
 msgid "Custom Text"
 msgstr ""
 
-#: includes/setting-tab/general.php:94
+#: includes/setting-tab/general.php:96
 msgid "<b>Some Examples:</b> <code>Starts at %min_price%</code>, <code>Starts %min_price% to %max_price%</code>."
 msgstr ""
 
-#: includes/setting-tab/general.php:95
+#: includes/setting-tab/general.php:97
 msgid "Display price format as you want, between two prices. <b>Note:</b> Display <b>Minimum Price</b> as <u>%min_price%</u> and <b>Maximum Price</b> as <u>%max_price%</u>."
 msgstr ""
 
-#: includes/setting-tab/general.php:106
+#: includes/setting-tab/general.php:108
 msgid "Variation Price"
 msgstr ""
 
-#: includes/setting-tab/general.php:110
+#: includes/setting-tab/general.php:112
 msgid "Change price, based on selected variation(s)."
 msgstr ""
 
-#: includes/setting-tab/general.php:120
+#: includes/setting-tab/general.php:122
 msgid "Hide Default Price"
 msgstr ""
 
-#: includes/setting-tab/general.php:124
+#: includes/setting-tab/general.php:126
 msgid "Don't display default variation price."
 msgstr ""
 
-#: includes/setting-tab/general.php:134
+#: includes/setting-tab/general.php:136
 msgid "Hide Reset Link"
 msgstr ""
 
-#: includes/setting-tab/general.php:138
+#: includes/setting-tab/general.php:140
 msgid "Remove \"Clear\" link on single product page."
 msgstr ""
 
-#: includes/setting-tab/general.php:148
+#: includes/setting-tab/general.php:150
 msgid "Format Sale Price"
 msgstr ""
 
-#: includes/setting-tab/general.php:153
+#: includes/setting-tab/general.php:155
 msgid "Show Regular Price and Sale Price Format."
 msgstr ""
 
-#: includes/setting-tab/general.php:162
+#: includes/setting-tab/general.php:164
 msgid "Product Wrapper Class"
 msgstr ""
 
-#: includes/setting-tab/general.php:166
+#: includes/setting-tab/general.php:168
 msgid "Give <code>comma (,)</code> after each target classes. <b>Examples:</b> <code>.product.product-type-variable</code>."
 msgstr ""
 
-#: includes/setting-tab/general.php:167
+#: includes/setting-tab/general.php:169
 msgid "Keep blank, if you haven't any issues with the price changing. This field is for fixing price changing compatibility issue."
 msgstr ""
 
-#: includes/setting-tab/general.php:177
+#: includes/setting-tab/general.php:179
 msgid "Remove Price Class"
 msgstr ""
 
-#: includes/setting-tab/general.php:181
+#: includes/setting-tab/general.php:183
 msgid "Give <code>comma (,)</code> after each target classes. <b>Examples:</b> <code>.df-product-inner-wrap .df-product-price.price, .product-inner-wrap .price</code>."
 msgstr ""
 
-#: includes/setting-tab/general.php:182
+#: includes/setting-tab/general.php:184
 msgid "Keep blank, if you haven't any issues with the price changing. This field is for fixing price changing compatibility issue in the product description/singe product page."
 msgstr ""
 
-#: includes/setting-tab/general.php:192
+#: includes/setting-tab/general.php:194
 msgid "Default Price Class"
 msgstr ""
 
-#: includes/setting-tab/general.php:196
+#: includes/setting-tab/general.php:198
 msgid "Give <code>comma (,)</code> after each target classes. <b>Examples:</b> <code>.single_variation_wrap .woocommerce-variation-price, .single_variation_wrap .variation-price</code>."
 msgstr ""
 
-#: includes/setting-tab/general.php:197
+#: includes/setting-tab/general.php:199
 msgid "Keep blank, if you haven't any issues with \"Hide Default Price\" option. This field is for fixing the \"Hide Default Price\" issue in the product description/singe product page."
 msgstr ""
 
@@ -419,10 +419,20 @@ msgstr ""
 msgid "License not added yet!"
 msgstr ""
 
-#: variation-price-display.php:39
+#: variation-price-display.php:48
 msgid "<strong>Variation Price Display Range for WooCommerce</strong> is an add-on of "
 msgstr ""
 
-#: variation-price-display.php:47
+#: variation-price-display.php:56
 msgid "WooCommerce"
+msgstr ""
+
+#. translators: %1$s: Main wrapper start, %2$s: Main wrapper end, %3$s: Bold wrapper start, %4$s: Bold wrapper end, %5$s: Pro Plugin Version
+#: variation-price-display.php:122
+msgid "%1$sYou are running an older version of %3$s\"Variation Price Display Range for WooCommerce - Pro\"%4$s. Please upgrade to %3$s %5$s %4$s or higher.%2$s"
+msgstr ""
+
+#. translators: %s: Pro Plugin Version
+#: variation-price-display.php:138
+msgid "You are running an older version of \"Variation Price Display Range for WooCommerce - Pro\". Please upgrade to %s or higher."
 msgstr ""
