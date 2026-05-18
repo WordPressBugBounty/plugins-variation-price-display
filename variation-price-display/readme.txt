@@ -5,9 +5,9 @@ Tags: price, price display, variation price, WooCommerce variation price, WooCom
 Requires PHP: 7.2
 Requires at least: 5.8
 WC requires at least: 5.5
-Tested up to: 6.9
-WC tested up to: 10.4.3
-Stable tag: 1.4.1
+Tested up to: 7.0
+WC tested up to: 10.7.0
+Stable tag: 1.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,6 +77,9 @@ Display crossed regular pice beside the sale price. Attract your customer and le
 
 🔥 **Advanced Price Types**
 By enabling the premium version, you will get two more price types. Such as- List all variation price and Custom. You can display minimum and maximum price in any format if you select **Custom**. **List all variation price** will display all the prices of each variation.
+
+🔥 **Price Comparison**
+While displaying the minimum price, *show price comparison* by displaying the additional cost relative to the minimum price.
 
 🔥 **Price Display Condition**
 You can define where you want to apply price display conditions. Price can be displayed on Shop/ Archive page, Single product/ Product description page, or Both Shop and Single product page.
@@ -152,6 +155,10 @@ Yes, price can be changed by change variaitons from dropdown (on single product 
 4. Advanced tab for Premimum version.
 
 == Changelog ==
+
+= 1.4.2 [18-05-2026] Monday =
+* Update: Settings script and option page.
+* Compatibility: WordPress 7.0 and WooCommerce 10.7.0
 
 = 1.4.1 [04-02-2026] Wednesday =
 * Security- Check based on Plugin Check Plugin (PCP).

@@ -11,7 +11,7 @@ class Variation_Price_Display{
 
     protected $_plugin = 'variation-price-display';
 
-    protected $_version = '1.4.1';
+    protected $_version = '1.4.2';
 
     protected static $_instance = null;
 
@@ -143,6 +143,8 @@ class Variation_Price_Display{
             'custom_price_text' => ( empty( $get_option['custom_price_text'] ) ) ? __('Starts at %min_price%', 'variation-price-display') : $get_option['custom_price_text'],
 
             'change_price' => ( empty( $get_option['change_price'] ) ) ? 'no' : $get_option['change_price'],
+            
+            'price_comparison' => ( empty( $get_option['price_comparison'] ) ) ? 'no' : $get_option['price_comparison'],
 
             'hide_default_price' => ( empty( $get_option['hide_default_price'] ) ) ? 'no' : $get_option['hide_default_price'],
 

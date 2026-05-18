@@ -115,6 +115,23 @@
                 )
             );
 
+            // Price comparison on variation change
+            WPXtension_Setting_Fields::checkbox(
+                $variation_price_display_options = array(
+                    'tr_class' => 'alternate new',
+                    'label' => esc_attr__('Price Comparison', 'variation-price-display'),
+                    'ele_class' => ' price_diff',
+                    'value' => !empty( get_option('variation_price_display_option') ) ?  Variation_Price_Display::get_options()->price_comparison : 'yes',
+                    'name' => 'variation_price_display_option[price_comparison]',
+                    'default_value' => 'yes', //initially true or checked //@note: also true at get_options();
+                    'checkbox_label' => __('Enable price difference text for variations compared to the lowest-priced option.', 'variation-price-display'),
+                    'note_info'      => __('<b>For example:</b> <code>+$8 compared to minimum price</code>', 'variation-price-display'),
+                    'tag' => esc_attr__('New', 'variation-price-display'),
+                    'need_pro' => true,
+                    'pro_exists' => Variation_Price_Display::check_plugin_state('variation-price-display-pro'),
+                )
+            );
+
             // Hide Default Price
             WPXtension_Setting_Fields::checkbox(
                 $variation_price_display_options = array(

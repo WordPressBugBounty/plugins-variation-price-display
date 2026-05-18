@@ -11,6 +11,7 @@
       $minTR = $( '.from_before_min_price' ).closest('tr');
       $maxTR = $( '.up_to_before_max_price' ).closest('tr');
       $customTR = $( '.custom_price_text' ).closest('tr');
+      $priceDiff = $( '.price_diff' ).closest('tr');
       $salePriceTR = $( '.format_sale_price' ).closest('tr');
       $categories = $( '.categories' ).closest('tr');
 
@@ -43,6 +44,7 @@
                   $maxTR.hide();
                   $customTR.hide();
                   $salePriceTR.show();
+                  $priceDiff.show();
                   break;
 
               case 'max':
@@ -50,6 +52,7 @@
                   $customTR.hide();
                   $maxTR.show();
                   $salePriceTR.show();
+                  $priceDiff.hide();
                   break;
 
               case 'custom':
@@ -57,6 +60,7 @@
                   $customTR.show();
                   $maxTR.hide();
                   $salePriceTR.show();
+                  $priceDiff.hide();
                   break;
 
               case 'list_variations':
@@ -64,6 +68,7 @@
                   $customTR.hide();
                   $maxTR.hide();
                   $salePriceTR.show();
+                  $priceDiff.hide();
                   break;
 
               default:
@@ -71,6 +76,7 @@
                   $maxTR.hide();
                   $customTR.hide();
                   $salePriceTR.hide();
+                  $priceDiff.hide();
 
           }
 
